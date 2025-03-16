@@ -21,7 +21,7 @@ for s in sys.stdin:
     # 遍歷可能的 n 值 (數列長度)，範圍從 2 到 sqrt(2*Sn)
     # 因為等差數列求和公式 S = n * (2a + (n - 1)) / 2 轉換為 2S = n * (2a + n - 1)
     # 可知 2Sn 必須能被 n 整除
-    for n in range(2, int(math.sqrt(2 * Sn)) + 1):
+    for n in range(2, int(math.sqrt(2 * Sn)) + 1): # 因為range會漏掉所以要+1
         if (2 * Sn) % n == 0:  # 檢查 2Sn 是否能被 n 整除
             if (2 * Sn / n - n + 1) % 2 == 0:  # 確保 (2Sn/n - n + 1) 是偶數，才能確保 a 是整數
                 a = (2 * Sn / n - n + 1) / 2  # 計算首項 a
