@@ -27,10 +27,16 @@ def search_map(arr, marker, x, y):
         marker[x][y] = 1  # 標記為已訪問
 
         # 依照四個方向進行遞迴搜尋 (上下左右)
-        search_map(arr, marker, x - 1, y)  # 上
-        search_map(arr, marker, x + 1, y)  # 下
-        search_map(arr, marker, x, y - 1)  # 左
-        search_map(arr, marker, x, y + 1)  # 右
+        # 依照四個方向進行探索(4 beighbors)
+        search_map(arr, marker, x-1, y)# 左
+        search_map(arr, marker, x+1, y)# 右
+        search_map(arr, marker, x, y-1)#上
+        search_map(arr, marker, x, y+1)#下
+        # 依照四個方向進行探索(8 beighbors)
+        search_map(arr, marker, x-1, y-1)# 左上
+        search_map(arr, marker, x-1, y+1)# 左下
+        search_map(arr, marker, x+1, y-1)#右上
+        search_map(arr, marker, x+1, y+1)#右下
 
 # **開始搜尋，從 (2,2) 這個位置開始**
 search_map(arr, marker, 2, 2)
