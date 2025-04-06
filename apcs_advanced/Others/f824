@@ -1,0 +1,98 @@
+# 中文數字轉阿拉伯數字對應表
+chinese_to_digit = {
+    '一': 1,
+    '二': 2,
+    '三': 3,
+    '四': 4,
+    '五': 5,
+    '六': 6,
+    '七': 7,
+    '八': 8,
+    '九': 9,
+    '十': 10
+}
+
+# 完全手動建立阿拉伯數字轉中文數字
+digit_to_chinese = {}
+
+k = '一'
+v = chinese_to_digit[k]
+digit_to_chinese[v] = k
+
+k = '二'
+v = chinese_to_digit[k]
+digit_to_chinese[v] = k
+
+k = '三'
+v = chinese_to_digit[k]
+digit_to_chinese[v] = k
+
+k = '四'
+v = chinese_to_digit[k]
+digit_to_chinese[v] = k
+
+k = '五'
+v = chinese_to_digit[k]
+digit_to_chinese[v] = k
+
+k = '六'
+v = chinese_to_digit[k]
+digit_to_chinese[v] = k
+
+k = '七'
+v = chinese_to_digit[k]
+digit_to_chinese[v] = k
+
+k = '八'
+v = chinese_to_digit[k]
+digit_to_chinese[v] = k
+
+k = '九'
+v = chinese_to_digit[k]
+digit_to_chinese[v] = k
+
+k = '十'
+v = chinese_to_digit[k]
+digit_to_chinese[v] = k
+
+# 手動加上 11~20 的中文表示
+digit_to_chinese[11] = '十一'
+digit_to_chinese[12] = '十二'
+digit_to_chinese[13] = '十三'
+digit_to_chinese[14] = '十四'
+digit_to_chinese[15] = '十五'
+digit_to_chinese[16] = '十六'
+digit_to_chinese[17] = '十七'
+digit_to_chinese[18] = '十八'
+digit_to_chinese[19] = '十九'
+digit_to_chinese[20] = '二十'
+
+# 處理輸入
+while True:
+    try:
+        line = input().strip()
+        if len(line) != 3:
+            print("謬")
+            continue
+
+        first = line[0]
+        operator = line[1]
+        third = line[2]
+
+        if operator == '有' or operator == '又':
+            if first in chinese_to_digit and third in chinese_to_digit:
+                a = chinese_to_digit[first]
+                b = chinese_to_digit[third]
+                total = a + b
+                if total in digit_to_chinese:
+                    print(digit_to_chinese[total])
+                else:
+                    print("謬")
+            else:
+                print("謬")
+        else:
+            print("謬")
+
+    except:
+        break
+
