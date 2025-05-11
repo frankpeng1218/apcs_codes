@@ -4,7 +4,7 @@ n = int(input())
 # 初始化陣列：
 parent = [-1] * (n+1)  # parent[i] 記錄節點 i 的父節點 (-1 表示還未設定) # 裡面放該index的媽媽
 height = [-1] * (n+1)  # height[i] 記錄節點 i 的高度 (-1 表示還未計算)
-height[0] = 0  # 確保陣列 height 有初始值 (不影響結果)
+height[0] = 0  # 確保陣列 height 有初始值
 child_count = [0] * (n+1)  # child_count[i] 記錄節點 i 有多少個子節點 # 該index點有多少子節點數量
 
 
