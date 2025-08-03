@@ -1,7 +1,8 @@
 # start
 
-##for i in range(1, 10):
-##    print("1" + "x" + str(i) + "= " + str(1*i), end =' ')
+##for j in range(1, 10):
+##    print("1" + "x" + str(j) + "= " + str(1*j), end =' ')
+##    print(f"1x{j}= {1*j}", end=' ')
 
 
 ##for i in range(1, 10):
