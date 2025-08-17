@@ -44,7 +44,8 @@ while True:  # 無限迴圈，持續處理測試案例，直到輸入結束
         # 如果不是第一個測試案例，輸出空行以分隔
         if TC > 1:
             print()
-        print("Field #" + str(TC) + ":")  # 輸出測試案例標題
+        print(f"Field #{TC}:")
+        # print("Field #" + str(TC) + ":")
 
         TC += 1  # 測試案例編號遞增
 
