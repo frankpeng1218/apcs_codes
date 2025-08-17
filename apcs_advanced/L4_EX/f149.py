@@ -47,8 +47,8 @@ for i in range(0, R):  # 遍歷地圖的每一行
 
             # 如果當前位置是偵測器，則檢查周圍是否有炸彈
             if MAP[i][j] == 5:
-                for m in range(j - 1, (j + 1) + 1):  # 偵測器左右的列
-                    for n in range(i - 1, (i + 1) + 1):  # 偵測器上下的行
+                for n in range(i - 1, (i + 1) + 1):  # 偵測器上下的行
+                    for m in range(j - 1, (j + 1) + 1):  # 偵測器左右的列
                         if m >= 0 and m < C and n >= 0 and n < R:  # 確保不越界
                             if MAP[n][m] == 1:  # 如果找到炸彈
                                 detected += 1  # 已偵測炸彈數 +1
