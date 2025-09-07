@@ -1,21 +1,12 @@
-import sys
+import sys  # 匯入 sys 模組，用來讀取標準輸入 (stdin)
 
-# 從標準輸入 (stdin) 讀取每一行輸入資料
-for s in sys.stdin:
-    # 將這一行以空白分割，轉成整數列表
-    # 例如輸入 "5 10 20 30 40 50" -> nums = [5, 10, 20, 30, 40, 50]
-    nums = list(map(int, s.split()))  # nums = [int(i) for i in s.split()]
+# 使用 sys.stdin 可以逐行讀取輸入 (通常用在競賽、處理大量輸入的情境)
+for s in sys.stdin:  
+    # 把讀到的一行字串 s，用空白切割，再用 map(int, ...) 轉換成整數
+    nums = list(map(int, s.split()))  
+    
+    # 等價寫法 (列表生成式)，同樣是把字串逐一轉換成整數
+    # nums = [int(i) for i in s.split()]
 
-    # nums[0] 表示後面有幾個數字
-    N = nums[0]
-
-    total = 0  # 用來累加總和
-    # 從 nums[1] 到 nums[N] 把所有數字加總
-    for i in range(1, N+1):
-        total = total + nums[i]
-        
-    # 平均值 = 總和 / 數字個數
-    average = total / N
-
-    # 印出平均值
-    print(average)
+    # 輸出轉換後的整數列表
+    print(nums)

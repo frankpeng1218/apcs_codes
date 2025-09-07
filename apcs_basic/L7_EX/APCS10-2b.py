@@ -1,21 +1,34 @@
 while True:
     try:
-        #start
+        # 讀取學生數量 N
+        N = int(input())  # 範例輸入：5
 
-        # 讀取一個整數 N，代表學生人數
-        N = int(input())
-
-        # 建立空的列表 student，用來儲存每位學生的資料
+        # 建立一個空清單，用來存放所有學生資料
         student = []
 
-        # 重複 N 次，讀取每位學生的資料
-        for i in range(N):
-            s = input()                       # 讀取一行學生資料
-            si = [ x for x in s.split()]      # 將資料以空白分割成多個欄位（例如名字、成績等）
-            student.append(si)                # 將這筆學生資料加到 student 列表中
+        # 讀取 N 筆學生資料
+        for i in range(N): 
+            s = input()  # 範例輸入：60547020S Wayne
 
-        # 印出學生資料的二維列表
+            # 依空白切割字串 → ["60547020S", "Wayne"]
+            si = [x for x in s.split()]
+
+            # 加入 student 清單
+            student.append(si)
+
+        # 輸出所有學生資料
         print(student)
 
     except:
-        break  # 若發生例外（例如輸入結束），就跳出 while 迴圈
+        # 當輸入結束或發生錯誤時，跳出迴圈
+        break
+
+
+# 更快的方式
+while True:
+    try:
+        N = int(input())  # 讀取學生數量
+        student = [input().split() for _ in range(N)]  # 一行就能完成
+        print(student)
+    except:
+        break
