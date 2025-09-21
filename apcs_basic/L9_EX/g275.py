@@ -42,7 +42,8 @@ for i in range(n):
         print("C", end='')      # 違反規則 C
     
     # 如果有違規則印換行，否則印 "None"
-    if violation > 0:
-        print()
-    else:
+    if violation == 0:
         print("None")
+    else:
+	print()
+
