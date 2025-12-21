@@ -21,3 +21,12 @@ else:
 # 方法二：
 s = input().strip()
 print("yes" if s == s[::-1] else "no")
+
+# 方法三：
+s = input().strip()
+s_list = list(s)        # 將字串轉成列表
+s_list.reverse()        # 反轉列表
+reversed_s = ''.join(s_list)  # 再把列表合併回字串
+
+print("yes" if s == reversed_s else "no")
+

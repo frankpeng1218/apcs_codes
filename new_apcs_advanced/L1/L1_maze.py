@@ -48,7 +48,7 @@ def walk(x, y):
     return False
 
 # start
-found = walk(1, 1)
+found_result = walk(1, 1)
 
 # 印出迷宮
 print("迷宮:")
@@ -67,4 +67,4 @@ for i in range(8):
     print(line)
 
 # 印出結果(是否能到終點)
-print("\n結果:", "成功走到終點！" if found else "無法走到終點")
+print("\n結果:", "成功走到終點！" if found_result else "無法走到終點")

@@ -13,3 +13,17 @@ N = int(input())
 print(sumX(N))
 
 
+
+# 方法二:
+N = int(input())
+total = 0
+for i in range(N+1):
+    total += i
+print(total)
+
+# 方法三:
+N = int(input())
+print(sum(range(N+1)))
+
+# 方法四:
+print(sum(range(int(input())+1)))

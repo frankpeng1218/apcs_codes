@@ -23,3 +23,34 @@ for s in sys.stdin:
         print(f"{n}! =", end="")  # 先印出 "n! ="
         ans = func(n)             # 呼叫遞迴函式計算 n!
         print(f" = {ans}")        # 印出最終結果
+
+
+
+###因為範圍很小可以這樣做，但不建議
+import sys
+
+for s in sys.stdin:
+    n = int(s)
+    
+    if n == 0:
+        print("0! = 1 = 1")
+    elif n == 1:
+        print("1! = 1 = 1")
+    elif n == 2:
+        print("2! = 2 * 1 = 2")
+    elif n == 3:
+        print("3! = 3 * 2 * 1 = 6")
+    elif n == 4:
+        print("4! = 4 * 3 * 2 * 1 = 24")
+    elif n == 5:
+        print("5! = 5 * 4 * 3 * 2 * 1 = 120")
+    elif n == 6:
+        print("6! = 6 * 5 * 4 * 3 * 2 * 1 = 720")
+    elif n == 7:
+        print("7! = 7 * 6 * 5 * 4 * 3 * 2 * 1 = 5040")
+    elif n == 8:
+        print("8! = 8 * 7 * 6 * 5 * 4 * 3 * 2 * 1 = 40320")
+    elif n == 9:
+        print("9! = 9 * 8 * 7 * 6 * 5 * 4 * 3 * 2 * 1 = 362880")
+    elif n == 10:
+        print("10! = 10 * 9 * 8 * 7 * 6 * 5 * 4 * 3 * 2 * 1 = 3628800")
