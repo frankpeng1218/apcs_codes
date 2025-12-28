@@ -44,3 +44,40 @@ print("總比較次數：", compare_count)
 
 # 印出總交換次數
 print("總交換次數：", swap_count)
+
+
+
+
+
+#####比較速度
+import time, random
+N = 5000
+data = [random.randint(1, 10000) for _ in range(N)]
+data_1 = data
+print(f"排列前: {data_1}")
+N = len(data_1)
+start = time.time()
+# 外層迴圈: 控制第幾輪
+for i in range(N):
+    # 內層迴圈: 進行相鄰元素的比較
+    # N-i-1的原因:
+    # 1. 最後i個元素已經排好了, 不需要再比較
+    # 2. j+1不可以超出索引範圍
+    for j in range(N-i-1):
+        if data[j] > data[j+1]:
+            temp = data[j]
+            data[j] = data[j+1]
+            data[j+1] = temp
+end = time.time()
+print(f"排序後: {data_1}")
+print(f"所花的時間: {end-start}")
+###################方法二#####################
+data_2 = data
+print(f"排列前: {data_2}")
+start = time.time()
+data_2.sort()
+end = time.time()
+print(f"排序後: {data_2}")
+print(f"所花的時間: {end-start}")
+
+
