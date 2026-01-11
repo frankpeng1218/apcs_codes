@@ -23,3 +23,8 @@ for i in range(3):
 
 # 印出整個二維串列
 print(arr)
+
+
+### 快速方式
+arr = [[i * 4 + j + 1 for j in range(4)] for i in range(3)]
+print(arr)

@@ -33,14 +33,14 @@ def search_map(arr, marker, x, y):
         marker[x][y] = 1
 
         # ----------- 遞迴搜尋四個方向 -----------
-        # 上
-        search_map(arr, marker, x-1, y)
-        # 下
-        search_map(arr, marker, x+1, y)
-        # 左
+        # 上:
         search_map(arr, marker, x, y-1)
-        # 右
+        # 下:
         search_map(arr, marker, x, y+1)
+        # 左:
+        search_map(arr, marker, x-1, y)
+        # 右:
+        search_map(arr, marker, x+1, y) 
 
 
 # ----------------- 主程式開始 -----------------

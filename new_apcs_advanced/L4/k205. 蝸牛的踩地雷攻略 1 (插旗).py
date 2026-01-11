@@ -39,10 +39,7 @@ for r in range(n):
                 flags += 1
             elif cell == "#":
                 unknowns.append((nr, nc))
-        # 規則：
-        # 周圍旗子數+周圍未知數=炸彈數
-        # 則所有未知(#)一定都是地雷, 全部都可以插旗
-        # 如果不相等：無法確定：不能插旗
+        # 如果周圍的旗子數P+周圍的未知#=炸彈數, 代表周圍的未知數#就要插旗
         if flags + len(unknowns) != need:
             continue
 

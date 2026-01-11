@@ -10,7 +10,7 @@ rows, cols = map(int, input().split()) # 3, 4
 # 讀取棋盤
 # board = []
 # for _ in range(rows):
-#    rows_input = input().split() # 2 2 2 2/2 1 2 1/2 2 2 2
+#    row_input = input().split() # 2 2 2 2/2 1 2 1/2 2 2 2
 #    row = list(map(int, row_input))
 #    board.append(row)
 
