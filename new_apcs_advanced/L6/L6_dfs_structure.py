@@ -8,13 +8,13 @@ def DFS(s):
     visit[s] = True
 
     # 走訪所有與節點 s 相鄰的節點
-    for v in G[s]:
-        # 若相鄰節點 v 尚未被拜訪
-        if not visit[v]:
-            # 將節點 v 記錄到走訪順序結果中
+    for next_node in G[s]:
+        # 若相鄰節點 next_node 尚未被拜訪
+        if not visit[next_node]:
+            # 將節點 next_node 記錄到走訪順序結果中
             R.append(v)
-            # 以 v 為起點繼續進行 DFS（一路往深處走）
-            DFS(v)
+            # 以 next_node 為起點繼續進行 DFS（一路往深處走）
+            DFS(next_node)
 
 # ---------- start ----------
 

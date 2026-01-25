@@ -17,19 +17,19 @@ for s in sys.stdin:
     A, B = map(int, sys.stdin.readline().split())
 
     # 使用 BFS 來檢查是否可以從 A 到達 B
-    route = [A]  # BFS 佇列，從 A 城市開始
+    Q = [A]  # BFS 佇列，從 A 城市開始
     visit = [0 for i in range(N+1)]  # 記錄是否訪問過該城市
 
     # 進行 BFS
-    while len(route) > 0:
-        now = route.pop(0)  # 取出佇列最前面的城市
+    while len(Q) > 0:
+        now = Q.pop(0)  # 取出佇列最前面的城市
         visit[now] = 1  # 標記該城市為已訪問
 
         # 拓展 BFS，檢查從 now 出發的所有鄰接城市
         for next_city in G[now]:
             if visit[next_city] == 0:  # 若該城市尚未訪問
                 visit[next_city] = 1  # 標記已訪問
-                route.append(next_city)  # 加入佇列，繼續搜索
+                Q.append(next_city)  # 加入佇列，繼續搜索
 
     # 判斷是否能從 A 到達 B
     if visit[B] == 1:

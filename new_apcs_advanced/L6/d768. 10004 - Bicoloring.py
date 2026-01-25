@@ -24,17 +24,17 @@ def BFS(color_map, start):
         # 取出當前節點
         now = Q.pop(0)
         #遊歷所有與"now" 相鄰的節點
-        for next_region in color_map[now]:
+        for next_node in color_map[now]:
             # 若該節點未被塗色
-            if visit[next_region] == 0:
-                Q.append(next_region) # 加入BFS的queue
+            if visit[next_node] == 0:
+                Q.append(next_node) # 加入BFS的queue
 		# 你跟原本的節點, 顏色判斷
                 if visit[now] == 1:
-                    visit[next_region] = 2 # 當前節點是1的話, 則相鄰節點塗2
+                    visit[next_node] = 2 # 當前節點是1的話, 則相鄰節點塗2
                 else:
-                    visit[next_region] = 1 # 如果當前是2或是沒塗過(就是起始點)的話, 相鄰的節點或沒塗的節點就會塗1
+                    visit[next_node] = 1 # 如果當前是2或是沒塗過(就是起始點)的話, 相鄰的節點或沒塗的節點就會塗1
             # 兩個顏色一樣, 則無法二分塗色
-            elif visit[next_region] == visit[now]:
+            elif visit[next_node] == visit[now]:
                 return False
     return True
 

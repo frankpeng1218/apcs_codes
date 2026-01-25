@@ -23,17 +23,17 @@ for _ in range(N):
 # 設定 BFS 起點
 S = int(input())
 
-# R 作為 queue（佇列），用來存放待走訪的節點
-R = [S]
+# Q 作為 queue（佇列），用來存放待走訪的節點
+Q = [S]
 
 # visit 陣列：紀錄節點是否已被拜訪
 # 0 表示尚未拜訪，1 表示已拜訪
 visit = [0 for i in range(N + 1)]
 
 # ---------- BFS 開始 ----------
-while len(R) > 0:
+while len(Q) > 0:
     # 從 queue 的前端取出一個節點
-    now = R.pop(0)
+    now = Q.pop(0)
 
     # 將目前節點標記為已拜訪
     visit[now] = 1
@@ -44,7 +44,7 @@ while len(R) > 0:
         if visit[next_node] == 0:
             # 標記為已拜訪並加入 queue
             visit[next_node] = 1
-            R.append(next_node)
+            Q.append(next_node)
 
 # 顯示每個節點是否被拜訪過
 print(visit)
