@@ -1,48 +1,40 @@
 # d637: 路過的鴨 duck
-# 這是一題 0/1 背包問題
+# 0/1 背包問題
 
-# 讀入鴨子數量
-n = int(input())
+# 讀入鴨飼料顆數
+pellet_count = int(input())
 
-# w = 每隻鴨子的重量
-# v = 每隻鴨子的價值
-v = []
-w = []
+# 每顆鴨飼料的重量與價值
+pellet_weights = []
+pellet_values = []
 
-# 讀入每隻鴨子的 (重量, 價值)
-for _ in range(n):
-    wa, vb = map(int, input().split())
-    w.append(wa)   # 重量
-    v.append(vb)   # 價值
+# 讀入每顆飼料的 (重量, 價值)
+for _ in range(pellet_count):
+    weight, value = map(int, input().split())
+    pellet_weights.append(weight)
+    pellet_values.append(value)
 
+# 背包最大容量（固定 100）
+max_capacity = 100
 
-# 建立 dp 表
 # dp[i][j] 表示：
-#   前 i 隻鴨子
-#   在容量 j 的情況下
-#   可以得到的最大價值
+# 前 i 顆鴨飼料
+# 在容量 j 的情況下
+# 可以得到的最大價值
+dp = [[0 for _ in range(max_capacity + 1)] for _ in range(pellet_count + 1)]
 
-dp = [ [0 for j in range(100+1)] for i in range(n+1) ]
-
-
-# 開始做動態規劃
-for i in range(0, n):         # 處理第 i 隻鴨子
-    for j in range(0, 101):   # 背包容量從 0~100
+# 動態規劃
+for i in range(pellet_count):                  # 第 i 顆飼料
+    for capacity in range(max_capacity + 1):   # 容量 0~100
         
-        # 如果容量不足放第 i 隻鴨子
-        if j - w[i] < 0:
-            # 那只能選擇不放
-            dp[i+1][j] = dp[i][j]
-        
+        # 容量不足，不能放這顆
+        if capacity < pellet_weights[i]:
+            dp[i+1][capacity] = dp[i][capacity]
         else:
-            # 兩種選擇：
-            # 不放第 i 隻鴨子
-            # 放第 i 隻鴨子
-            dp[i+1][j] = max(
-                dp[i][j],                    # 不放
-                v[i] + dp[i][j - w[i]]       # 放
+            dp[i+1][capacity] = max(
+                dp[i][capacity],  # 不放
+                pellet_values[i] + dp[i][capacity - pellet_weights[i]]  # 放
             )
 
-# 輸出答案
-# 前 n 隻鴨子，容量 100 時的最大價值
-print(dp[n][100])
+# 輸出最大價值
+print(dp[pellet_count][max_capacity])
