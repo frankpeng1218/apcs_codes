@@ -10,9 +10,9 @@ pellet_values = []
 
 # 讀入每顆飼料的 (重量, 價值)
 for _ in range(pellet_count):
-    weight, value = map(int, input().split())
-    pellet_weights.append(weight)
-    pellet_values.append(value)
+    a, b = map(int, input().split())
+    pellet_weights.append(a)
+    pellet_values.append(b)
 
 # 背包最大容量（固定 100）
 max_capacity = 100
@@ -32,8 +32,8 @@ for i in range(pellet_count):                  # 第 i 顆飼料
             dp[i+1][capacity] = dp[i][capacity]
         else:
             dp[i+1][capacity] = max(
-                dp[i][capacity],  # 不放
-                pellet_values[i] + dp[i][capacity - pellet_weights[i]]  # 放
+                dp[i][capacity],  # 不放當前鴨飼料
+                pellet_values[i] + dp[i][capacity - pellet_weights[i]]  # 放當前鴨飼料
             )
 
 # 輸出最大價值
